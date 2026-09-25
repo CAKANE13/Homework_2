@@ -3,7 +3,7 @@ title: "homework-2"
 author: 
   name: Caitlin A. Kane 
   affliation: NC State University 
-format: html
+format: pdf
 editor: visual
 ---
 
