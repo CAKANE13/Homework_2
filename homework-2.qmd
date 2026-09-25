@@ -1,0 +1,74 @@
+---
+title: "homework-2"
+author: 
+  name: Caitlin A. Kane 
+  affliation: NC State University 
+format: html
+editor: visual
+---
+
+# Packages 
+
+## Question 1 
+
+
+```{r}
+#| eval: FALSE 
+
+intall.packages("aRtsy")
+```
+
+install.packages() is the code used to install different R packages. Library is what loads and attaches installed packages to your current document. In essence, it allows you to use the package you have installed by "checking" it.
+
+\newpage 
+
+## Question 2
+
+```{r}
+library(aRtsy)
+```
+
+The Collatz conjecture is an unsolved math equation that applies the same two rules to positive integers. These rules are to divide even numbers by 2 and if it is an odd number, to follow the 3n + 1 rule, where you multiply it by three and add one. This is a process that continues infinitely. So you just keep applying the same rules to the outcome you get infinitely.
+
+$f(n)=\begin{cases}n/2,&\text{if }n\text{ is even},\\3n+1,&\text{if }n\text{ is odd}.\end{cases}$
+
+\newpage
+
+## Question 3 
+
+```{r}
+canvas_collatz(
+  colors = c("blue"),
+  n = 10
+)
+```
+The code uses 10 as the starting value for the Collatz Conjecture and tells it to use blue as its color for mapping it out. I believe it is making art out of the input values with the color blue, since that is what we coded it to do. 
+
+#### b 
+
+The code gives a different outcome every time because it uses random number generation. The problem with this is that it is not reproducible unless you set a seed value. 
+
+This is problematic in a Quarto Document because when you render the documents it re-runs the code, which would give you a different output when you render than the one you got when you first ran it. Thus, the figure in your final document could differ from the one you initially worked with. Once again, affecting reproducibility. 
+
+set.seed can be used to make random results reproducible. It essentially sets a start point for the code. 
+
+```{r}
+set.seed(13)
+
+canvas_collatz(
+  colors = c("blue"),
+  n = 10
+)
+```
+\newpage
+
+## Question 4 
+
+The difference between the two codes is that in the code used in question 3, the input value was 10. However, in this one, we are giving R every integer 1-20. Therefore, we are getting multiple Collatz sequences, not just the one. Again, set.seed could still be used because it still makes it reproducible even though we are giving R the integers 1:20. Using set.seed would make the output consistent. 
+
+```{r}
+canvas_collatz(
+  colors = c("blue"),
+  n = 1:20
+)
+```
